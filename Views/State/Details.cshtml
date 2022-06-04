@@ -1,0 +1,57 @@
+﻿@model Sample_CRUD.Models.State
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Country Details</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.StateId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StateId)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.StateName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StateName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Country.CountryName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Country.CountryName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Capital)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Capital)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.CreatedBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedBy)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.CreatedOn)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedOn)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.StateId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

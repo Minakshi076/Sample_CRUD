@@ -1,0 +1,55 @@
+﻿@model Sample_CRUD.Models.State
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+<fieldset>
+    <legend>Edit State</legend>
+
+    @Html.HiddenFor(model => model.StateId)
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.StateName)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.StateName)
+        @Html.ValidationMessageFor(model => model.StateName)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Country.CountryName)
+    </div>
+    <div class="editor-field">
+        @Html.DropDownListFor(m => m.CountryFK,
+             new List<SelectListItem>(ViewBag.CountryList),
+             "Select Country")
+        @Html.ValidationMessageFor(model => model.CountryFK)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Capital)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Capital)
+        @Html.ValidationMessageFor(model => model.Capital)
+    </div>
+
+    <p>
+        <input type="submit" value="Save" />
+    </p>
+</fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

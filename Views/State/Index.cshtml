@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Sample_CRUD.Models.State>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<style>
+    table, th, td {
+        border: 1px solid;
+        padding:10px;
+    }
+</style>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StateId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StateName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country.CountryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capital)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.StateId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.StateName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Country.CountryName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Capital)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.StateId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.StateId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.StateId })
+    </td>
+</tr>
+}
+
+</table>
